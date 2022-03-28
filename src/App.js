@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+import {useState} from "react";
 import './App.css';
+import Number from "./components/Number";
 
-function App() {
+
+const App = ()=> {
+
+  // const [number,setNumber] = useState(0)
+  const[name,setName]=useState("")
+  const[email,setEmail]=useState("")
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{backgroundColor:"pink",padding:"10px"}}>
+
+     <ul>
+       <li>UserName:{name}</li>
+     </ul>
+     <ul>
+       <li>email:{email}</li>
+     </ul>
+      <Number onButtonClick={(UserName,useremail)=>
+      {
+        console.log("onButtonclick");
+        setName(UserName);
+        setEmail(useremail);
+      }
+      }/>
+
+
+
+
+
+
+
+     
+      {/* <button onClick={()=>{setNumber((number)+1)}}>Increment</button>
+
+      <button onClick={()=>{setNumber((number)-1)}}>Decrement</button> */}
+
     </div>
+    
   );
 }
 
